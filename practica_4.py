@@ -4,7 +4,7 @@ import pandas as pd
 # TODO: 1. Cargar el archivo 'estudiantes_ejercicio.csv' y comprobar que las columnas nuevas existen
 ruta_archivo = r"C:\Users\USUARIO\Desktop\PROGRAMACION\Artificial Inteligent\Nivel Basico\Base de datos"
 nombre_del_archivo = 'copy_estudiantes_original.csv'
-df = pd.read_csv(f'{ruta_archivo}\{nombre_del_archivo}')
+df = pd.read_csv(f'{ruta_archivo}\{nombre_del_archivo}', index_col=0)
 
 df['Aprobado'] = df["Promedio_10"] >= 8.0
 df['Promedio_100'] = df['Promedio_10'] * 10
@@ -43,7 +43,7 @@ subset = df[["Nombre", "Carrera", "Promedio_10", "Aprobado"]]
 # print('========== SEXTO PUNTO ==========')
 # print(subset)
 
-ruta_archivo_3 = f'{ruta_archivo}\\practica4_estudiantes_original.csv'
-# subset.to_csv(ruta_archivo_3)
-# practica_4 = pd.read_csv(ruta_archivo_3)
-# print(f'RESULTADO FINAL: \n{practica_4}')
+ruta_archivo_3 = f'{ruta_archivo}\practica4_estudiantes_original.csv'
+subset.to_csv(ruta_archivo_3)
+practica_4 = pd.read_csv(ruta_archivo_3, index_col=0)
+print(f'RESULTADO FINAL: \n{practica_4}')
