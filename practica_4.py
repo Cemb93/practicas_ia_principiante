@@ -3,7 +3,7 @@ import os
 
 # !NOTA: INSTALAR LA EXTENCION "Better Comments" PARA VISUALIZAR MEJOR LOS COMENTARIOS 
 # TODO: 1. Cargar el archivo 'estudiantes_ejercicio.csv' y comprobar que las columnas nuevas existen
-ruta_archivo = r"C:\Users\USUARIO\Desktop\PROGRAMACION\Artificial Inteligent\Nivel Basico\Base de datos\estudiantes_original.csv"
+ruta_archivo = r"C:\Users\USUARIO\Desktop\PROGRAMACION\Artificial Inteligent\Nivel Basico\Base de datos"
 nombre_del_archivo = 'copy_estudiantes_original.csv'
 df = pd.read_csv(f'{ruta_archivo}\{nombre_del_archivo}')
 
