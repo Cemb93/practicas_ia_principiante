@@ -6,7 +6,7 @@ import pandas as pd
 ruta_bd = r'C:\Users\USUARIO\Desktop\PROGRAMACION\Artificial Inteligent\Nivel Basico\Base de datos'
 nombre_del_archivo = '\dataset_bigdata.xlsx'
 df_practica5 = pd.read_excel(f'{ruta_bd}{nombre_del_archivo}')
-# print(f'---------- PRIMER PUNTO ----------\n{df_practica5}\n\n')
+print(f'---------- PRIMER PUNTO ----------\n{df_practica5}\n\n')
 
 # TODO: 2. Analizar solo eventos batch de redes con tamano_gb >=6
 condicion = (
@@ -15,7 +15,7 @@ condicion = (
     (df_practica5['tipo_procesamiento'] == 'batch')
 )
 filtrando_eventos = df_practica5[condicion]
-# print(f'---------- SEGUNDO PUNTO ----------\n{filtrando_eventos}\n\n')
+print(f'---------- SEGUNDO PUNTO ----------\n{filtrando_eventos}\n\n')
 
 # TODO: 3. Imputar los NaN con la mediana de las columnas 'latencia_ms' y 'etiqueta_anomalia' (separados)
 mediana_lms = df_practica5['latencia_ms'].median(skipna=True)
@@ -23,7 +23,7 @@ mediana_etan = df_practica5['etiqueta_anomalia'].median(skipna=True)
 df_practica5_imp = df_practica5.copy()
 df_practica5_imp['latencia_ms'] = df_practica5_imp['latencia_ms'].fillna(mediana_lms) # * REEMPLAZO LOS VALORES NULL
 df_practica5_imp['etiqueta_anomalia'] = df_practica5_imp['etiqueta_anomalia'].fillna(mediana_etan) # * REEMPLAZO LOS VALORES NULL
-# print(f'---------- TERCER PUNTO ----------\n{df_practica5_imp}\n\n')
+print(f'---------- TERCER PUNTO ----------\n{df_practica5_imp}\n\n')
 
 """
     TODO: 4. Con los nuevos valores de las columnas del punto 3 agrupar por tipo de procesamiento y calcular:
