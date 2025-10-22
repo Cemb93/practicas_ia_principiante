@@ -1,4 +1,3 @@
-# 2. Analizar solo eventos batch de redes con tamano_gb >=6
 # 3. Imputar los NaN con la mediana de las columnas 'latencia_ms' y 'etiqueta_anomalia' (separados)
 # 4. Con los nuevos valores de las columnas del punto 3 agrupar por tipo de procesamiento y calcular:
     # a. Cantidad de registros
@@ -13,16 +12,16 @@ import pandas as pd
 ruta_bd = r'C:\Users\USUARIO\Desktop\PROGRAMACION\Artificial Inteligent\Nivel Basico\Base de datos'
 nombre_del_archivo = '\dataset_bigdata.xlsx'
 df_practica5 = pd.read_excel(f'{ruta_bd}{nombre_del_archivo}')
-print(f'---------- PRIMER PUNTO ----------\n{df_practica5}\n\n')
+# print(f'---------- PRIMER PUNTO ----------\n{df_practica5}\n\n')
 
-#R/2.
-# condicion = (
-#     (df_practica5['tipo_procesamiento'] == 'batch') &
-#     (df_practica5['origen_datos'] == 'redes') &
-#     (df_practica5['tamano_gb'] >= 6)
-# )
-# df_batch = df_practica5[condicion]
-# print(f'******Punto 2******\n{df_batch}')
+# TODO: 2. Analizar solo eventos batch de redes con tamano_gb >=6
+condicion = (
+    (df_practica5['origen_datos'] == 'redes') &
+    (df_practica5['tamano_gb'] >= 6) &
+    (df_practica5['tipo_procesamiento'] == 'batch')
+)
+filtrando_eventos = df_practica5[condicion]
+print(f'---------- SEGUNDO PUNTO ----------\n{filtrando_eventos}\n\n')
 
 #R/3.
 # mediana_lms=df_practica5['latencia_ms'].median(skipna=True)
